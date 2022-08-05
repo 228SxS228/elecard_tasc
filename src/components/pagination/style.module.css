@@ -1,0 +1,35 @@
+.container{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.container__ul{
+    display: flex;
+}
+.container__li{
+    display: table;
+    border: solid black 1px;
+    width: 30px;
+    height: 32px;
+    font-size: 20px;
+}
+.container__li{
+    padding-top: 3px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: center;
+}
+.container__li:hover{
+    background-color: #595858;
+}
+.container__btn{
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 4px;
+    margin-right: 10px;
+    background-color: white;
+    border: black solid 1px;
+}
+.container__btn:hover{
+    background-color: #595858;
+}

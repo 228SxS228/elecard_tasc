@@ -9,27 +9,26 @@ import Pagination from "./components/pagination/Pagination";
 function App() {
 
     const [cards, setCards] = useState([]);
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         fetchCards()
     }, []);
-
     async function fetchCards() {
         try {
+            setLoading(true);
             const response = await axios.get('http://contest.elecard.ru/frontend_data/catalog.json');
             setCards(response.data);
+            setLoading(false);
         } catch (e) {
-            console.log(e);
+            setLoading(false);
+            alert(e);
         }
     }
-
     const [currentPage, setCurrentPage] = useState(1);
     const [cardsPerPage] = useState(35);
     const lastCardsIndex = currentPage * cardsPerPage;
     const firstCardsIndex = lastCardsIndex - cardsPerPage;
     const currentCard = cards.slice(firstCardsIndex, lastCardsIndex);
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
 
     return (
         <div className="App">
@@ -37,13 +36,15 @@ function App() {
                 <Header/>
             </header>
             <main className={styles.main}>
-                <Card cards={currentCard}/>
+                <Card cards={currentCard} loading={loading}/>
             </main>
-            <Pagination
-                cardsPerPage = {cardsPerPage}
-                totalCards={cards.length}
-                paginate={paginate}
-            />
+            <div className={styles.pagination}>
+                <Pagination
+                    cardsPerPage = {cardsPerPage}
+                    totalCards={cards.length}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
             <footer className={styles.footer}>
                 Footer
             </footer>
