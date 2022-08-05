@@ -4,6 +4,19 @@ import styles from "./style.module.css"
 
 
 const Card = ({cards, loading}) => {
+
+    cards.map(byt => {
+        const size = (byt.filesize / 1024).toFixed(2);
+        console.log(size)
+    })
+
+    cards.map(item =>{
+        const data = item.timestamp * 1000;
+        const dataObj = new Date(data);
+        console.log(dataObj)
+    })
+
+
     const [closeCard, setCloseCard] = useState(true);
     if(!closeCard) {
         localStorage.setItem('close card', JSON.stringify(cards));
@@ -25,9 +38,9 @@ const Card = ({cards, loading}) => {
                         <img src="{}" alt="test"/>
                     </div>
                     <div className={styles.filling__item}>
-                        <label>Filesize: <p>{cards.filesize}</p></label>
-                        <label>timestamp: <p>{cards.timestamp}</p></label>
-                        <label>category: <p>{cards.category}</p></label>
+                        <label>Размер: <p>{cards.filesize}</p></label>
+                        <label>Время: <p>{cards.timestamp}</p></label>
+                        <label>Категория: <p>{cards.category}</p></label>
                     </div>
                 </div>
             )}
