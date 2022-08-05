@@ -1,0 +1,32 @@
+.header__container{
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+}
+.filter{
+    display: flex;
+    flex-direction: column;
+}
+.filter__text{
+    padding-top: 10px;
+}
+.category__ul{
+    display: flex;
+    gap: 15px;
+}
+.category__item{
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+.filter__category{
+    display: flex;
+    gap: 15px;
+}
+.reset__button{
+    height: 50px;
+    width: 90px;
+    text-align: center;
+    margin-left: 50px;
+    border-radius: 3px;
+}
