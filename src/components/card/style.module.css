@@ -4,30 +4,29 @@
 }
 .container__filling{
     border: black solid 2px;
-    height: 150px;
+    height: 350px;
     width: 270px;
     margin-left: 20px;
     margin-top: 20px;
+    box-shadow: 0 10px 38px black, 0 5px 8px white;
 }
 .container__button{
     margin-left: 207px;
 }
-.filling__img {
-    height: 100px;
-    width: 265px;
-    border: black solid 1px;
-}
 .container__button{
     position: absolute;
 }
-
+.img {
+    width: 100%;
+    height: 300px;
+}
 .filling__item{
-    margin-top: 10px;
-    padding-left: 6px;
+    margin-top: 5px;
+    padding-left: 18px;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     text-align: center;
 }
 .container__button a{
-    color: black;
+    color: #2d2727;
 }

@@ -18,6 +18,7 @@
     display: flex;
     gap: 3px;
     align-items: center;
+    cursor: pointer ;
 }
 .filter__category{
     display: flex;
@@ -29,4 +30,7 @@
     text-align: center;
     margin-left: 50px;
     border-radius: 3px;
+}
+.item__text{
+    cursor: pointer;
 }

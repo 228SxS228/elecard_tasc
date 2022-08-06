@@ -25,18 +25,20 @@ function App() {
         }
     }
     const [currentPage, setCurrentPage] = useState(1);
-    const [cardsPerPage] = useState(35);
+    const [cardsPerPage] = useState(20);
     const lastCardsIndex = currentPage * cardsPerPage;
     const firstCardsIndex = lastCardsIndex - cardsPerPage;
     const currentCard = cards.slice(firstCardsIndex, lastCardsIndex);
-
+    if(loading) {
+        return <h2>Загрузка пожалуйста подождите...</h2>
+    }
     return (
         <div className="App">
             <header className={styles.header}>
                 <Header/>
             </header>
             <main className={styles.main}>
-                <Card cards={currentCard} loading={loading}/>
+                <Card cards={currentCard}/>
             </main>
             <div className={styles.pagination}>
                 <Pagination
