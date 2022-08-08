@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './style.module.css'
 
 
-const Header = ({filterValue, onChange, useFilter}) => {
 
+const Header = ({filterValue, onChange, cards}) => {
     return (
         <div className={styles.header__container}>
             <div className={styles.filter}>
@@ -28,8 +28,8 @@ const Header = ({filterValue, onChange, useFilter}) => {
                         <label className={styles.category__item}>
                             <input type="radio"
                                    name="filter"
-                                   checked={filterValue === useFilter.category}
-                                   value={useFilter.category}
+                                   checked={filterValue === cards.category}
+                                   value={cards.category}
                                    onChange={onChange}
                             />
                             <p className={styles.item__text}>Категории</p>
@@ -39,8 +39,8 @@ const Header = ({filterValue, onChange, useFilter}) => {
                         <label className={styles.category__item}>
                             <input type="radio"
                                    name="filter"
-                                   checked={filterValue === useFilter.timestamp}
-                                   value={useFilter.timestamp}
+                                   checked={filterValue === cards.timestamp}
+                                   value={cards.timestamp}
                                    onChange={onChange}
                             />
                             <p className={styles.item__text}>Дате</p>
@@ -58,8 +58,8 @@ const Header = ({filterValue, onChange, useFilter}) => {
                         <label className={styles.category__item}>
                             <input type="radio"
                                    name="filter"
-                                   checked={filterValue === useFilter.filesize}
-                                   value={useFilter.filesize}
+                                   checked={filterValue === cards.filesize}
+                                   value={cards.filesize}
                                    onChange={onChange}
                             />
                             <p className={styles.item__text}>Размеру файла</p>
