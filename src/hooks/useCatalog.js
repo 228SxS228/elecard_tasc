@@ -6,9 +6,16 @@ import axios from "axios";
 const useCatalog = () => {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(false);
-    const removeCard = image => {
+
+
+    const removeCard = (image) => {
         if (cards){
-            setCards([...cards].filter(cards => cards.image !== image))
+            setCards([...cards].filter(cards => cards.image !== image));
+            const deleteCards = localStorage.getItem('deleteCards');
+            const id = cards.dataset.id;
+            deleteCards.push(id);
+            localStorage.setItem('deleteCards', deleteCards);
+            console.log("Test")
         }
     }
     useEffect(() => {
