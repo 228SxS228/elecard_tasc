@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './style.module.css'
 
 
-
-const Header = ({filterValue, onChange, cards}) => {
+const Header = ({handleFilter, cards, filter}) => {
     return (
         <div className={styles.header__container}>
             <div className={styles.filter}>
@@ -17,20 +16,21 @@ const Header = ({filterValue, onChange, cards}) => {
                     </li>
                     <li>
                         <label htmlFor="" className={styles.category__item}>
-                            <input type="radio" checked={null} onChange={null}/>
+                            <input type="radio"/>
                             <p className={styles.item__text}>в виде древовидного списка</p>
                         </label>
                     </li>
                 </ul>
                 <p className={styles.filter__text}>Соритировать по: </p>
+
                 <ul className={styles.category__ul}>
                     <li>
                         <label className={styles.category__item}>
                             <input type="radio"
                                    name="filter"
-                                   checked={filterValue === cards.category}
-                                   value={cards.category}
-                                   onChange={onChange}
+                                   value="category"
+                                   onChange={handleFilter}
+                                   checked={filter === "category"}
                             />
                             <p className={styles.item__text}>Категории</p>
                         </label>
@@ -39,9 +39,10 @@ const Header = ({filterValue, onChange, cards}) => {
                         <label className={styles.category__item}>
                             <input type="radio"
                                    name="filter"
-                                   checked={filterValue === cards.timestamp}
-                                   value={cards.timestamp}
-                                   onChange={onChange}
+                                   value="timestamp"
+                                   onChange={handleFilter}
+                                   checked={filter === "timestamp"}
+
                             />
                             <p className={styles.item__text}>Дате</p>
                         </label>
@@ -58,14 +59,15 @@ const Header = ({filterValue, onChange, cards}) => {
                         <label className={styles.category__item}>
                             <input type="radio"
                                    name="filter"
-                                   checked={filterValue === cards.filesize}
-                                   value={cards.filesize}
-                                   onChange={onChange}
+                                   value="filesize"
+                                   onChange={handleFilter}
+                                   checked={filter === "filesize"}
                             />
                             <p className={styles.item__text}>Размеру файла</p>
                         </label>
                     </li>
                 </ul>
+
             </div>
             <button className={styles.reset__button}>Сбросить категории</button>
         </div>

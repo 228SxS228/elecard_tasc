@@ -6,21 +6,19 @@ import axios from "axios";
 const useCatalog = () => {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(false);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [cardsPerPage] = useState(20);
+    // const lastCardsIndex = currentPage * cardsPerPage;
+    // const firstCardsIndex = lastCardsIndex - cardsPerPage;
+    // const currentCard = cards.slice(firstCardsIndex, lastCardsIndex);
+    // const total = cards.length;
+    const [filter, setFilter] = useState("category");
 
 
-    const removeCard = (image) => {
-        if (cards){
-            setCards([...cards].filter(cards => cards.image !== image));
-            const deleteCards = localStorage.getItem('deleteCards');
-            const id = cards.dataset.id;
-            deleteCards.push(id);
-            localStorage.setItem('deleteCards', deleteCards);
-            console.log("Test")
-        }
-    }
     useEffect(() => {
         fetchCards();
     }, []);
+
     async function fetchCards() {
         try {
             setLoading(true);
@@ -33,27 +31,26 @@ const useCatalog = () => {
         }
     }
 
-    const [filter, setFilter] = useState([]);
     const handleFilter = (e) => {
         setFilter(e.target.value);
         setCards((prevState) => filterCards(e.target.value, prevState));
     }
-
-    const filterCards = () => {
-        fetchCards();
-        if (cards.category) {
+    const filterCards = (cards, value) => {
+        if (value === "category") {
             return [...cards].sort();
-        } else if (cards.timestamp) {
+        } else if (value === "timestamp") {
             return [...cards].sort((a, b) => a.timestamp - b.timestamp);
-        } else if (cards.filesize) {
+        } else if (value === "filesize") {
             return [...cards].sort((a, b) => a.filesize - b.filesize);
         }
     }
+
     if(loading) {
         return <h2>Загрузка пожалуйста подождите...</h2>
     }
 
-    return {cards, filter, handleFilter, removeCard}
+    return {cards,  handleFilter, filter}
 }
 
+// currentCard, cardsPerPage, setCurrentPage, total,
 export default useCatalog;

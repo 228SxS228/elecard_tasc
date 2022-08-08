@@ -4,14 +4,14 @@
 }
 .container__filling{
     border: black solid 2px;
-    height: 350px;
-    width: 270px;
+    height: 360px;
+    width: 320px;
     margin-left: 20px;
     margin-top: 20px;
     box-shadow: 0 10px 38px black, 0 5px 8px white;
 }
 .container__button{
-    margin-left: 207px;
+    margin-left: 255px;
 }
 .container__button{
     position: absolute;
@@ -22,11 +22,12 @@
 }
 .filling__item{
     margin-top: 5px;
-    padding-left: 18px;
+    padding-left: 5px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
+    font-size: 15px;
 }
 .container__button a{
-    color: #2d2727;
+    color: #ea8a8a;
 }
