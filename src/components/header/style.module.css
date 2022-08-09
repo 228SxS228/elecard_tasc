@@ -34,3 +34,9 @@
 .item__text{
     cursor: pointer;
 }
+.reset__button{
+    padding-top: 7px;
+    border: black solid 1px;
+    cursor: pointer ;
+    text-align: center;
+}

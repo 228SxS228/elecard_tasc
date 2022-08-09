@@ -9,7 +9,7 @@ const Pagination = ({cardsPerPage, totalCards, setCurrentPage}) => {
     const nextPage = () => setCurrentPage(prevState => prevState + 1);
     const prevPage = () => setCurrentPage(prevPage => prevPage - 1);
     const pageNumber = [];
-    for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
+    for (let i = 1; i<=Math.ceil(totalCards / cardsPerPage); i++){
         pageNumber.push(i);
     }
 

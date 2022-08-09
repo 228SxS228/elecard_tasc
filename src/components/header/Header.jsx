@@ -2,21 +2,31 @@ import React from 'react';
 import styles from './style.module.css'
 
 
-const Header = ({handleFilter, cards, filter}) => {
+const Header = ({handleFilter, filter, cancelLocal, onChange, kind}) => {
     return (
         <div className={styles.header__container}>
             <div className={styles.filter}>
-                <p className={styles.filter__text}>Вид карточек:</p>
+                <p className={styles.filter__text}>Вид приложения:</p>
                 <ul className={styles.category__ul}>
                     <li>
                         <label htmlFor="" className={styles.category__item}>
-                            <input type="radio"/>
+                            <input type="radio"
+                                   name="cards"
+                                   checked={kind === "cards"}
+                                   value="cards"
+                                   onChange={onChange}
+                            />
                             <p className={styles.item__text}>в виде карточек</p>
                         </label>
                     </li>
                     <li>
                         <label htmlFor="" className={styles.category__item}>
-                            <input type="radio"/>
+                            <input type="radio"
+                                   name="cards"
+                                   checked={kind === "cards"}
+                                   value="tree"
+                                   onChange={onChange}
+                            />
                             <p className={styles.item__text}>в виде древовидного списка</p>
                         </label>
                     </li>
@@ -69,7 +79,16 @@ const Header = ({handleFilter, cards, filter}) => {
                 </ul>
 
             </div>
-            <button className={styles.reset__button}>Сбросить категории</button>
+            <a href="#"
+               className={styles.reset__button}
+               onClick={cancelLocal}>
+                <span>Вернуть карточки</span>
+            </a>
+            <a href="#"
+               className={styles.reset__button}
+               onClick={cancelLocal}>
+                <span>Сбросить категории</span>
+            </a>
         </div>
 
     );
